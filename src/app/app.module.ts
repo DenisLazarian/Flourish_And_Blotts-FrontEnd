@@ -3,22 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {Route, Routes} from "@angular/router";
+import {Route, RouterModule, Routes} from "@angular/router";
 import { HomeComponent } from './home/home.component';
+import { EjemploRouteComponent } from './ejemplo-route/ejemplo-route.component';
+import { Ejem2Component } from './ejem2/ejem2.component';
+import { Pagina2Component } from './pagina2/pagina2.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
-const appModule: Routes = [
-  {path:'', component: HomeComponent}
-]
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    EjemploRouteComponent,
+    Ejem2Component,
+    Pagina2Component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

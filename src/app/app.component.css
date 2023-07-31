@@ -1,0 +1,23 @@
+.content{
+  overflow: hidden;
+}
+
+.nav-link{
+  border-left: 0;
+  margin-top:15px;
+  border-right: 40px;
+  border-radius: 0 40px 40px 0;
+
+}
+
+.nav-link:hover{
+  background-color: #d8d8dc;
+  border-radius: 0 40px 40px 0;
+
+}
+
+.actived{
+  background-color: #e8d124;
+  color: white;
+  border-radius: 0 40px 40px 0;
+}
