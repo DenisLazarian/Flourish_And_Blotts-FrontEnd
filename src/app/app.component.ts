@@ -1,5 +1,5 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {FormControl, FormGroup, NgForm} from "@angular/forms";
 import {Observable} from "rxjs";
 import {UserService} from "./service/user/user.service";
 import {HttpClient} from "@angular/common/http";
@@ -21,6 +21,9 @@ export class AppComponent {
 
   data:any[] = [];
   dataFile:any[] = [];
+  submitFile: FormGroup = new FormGroup<any>({
+    file: new FormControl('')
+  });
 
   constructor(private userService: UserService,
               private httpClient: HttpClient,
@@ -40,12 +43,12 @@ export class AppComponent {
     })
   }
 
-  uploadClient(form: NgForm){
-    const file = form.value.files;
+  uploadClient(event: any): void {
+    const file = event.target.files[0];
     console.log(file);
     if(file){
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append("file", file);
 
       this.fileService.uploadFile(formData)
         .subscribe((response:any):void => {

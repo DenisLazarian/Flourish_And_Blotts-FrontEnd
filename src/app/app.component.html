@@ -62,13 +62,17 @@
       <div id="content"  class="m-5" >
         <h2 class="mb-5">Testing form</h2>
 
-        <form (ngSubmit)="uploadClient(f)" #f="ngForm">
-          <div>
-            <label for="file" class="form-label" >Select a CSV file:</label>
-            <input type="file" ngModel name="files" id="file" accept=".csv" class="form-control">
-          </div>
-          <button class="mt-4 btn btn-warning " type="submit" role="button">Submit</button>
-        </form>
+<!--        <form [formGroup]="submitFile" (ngSubmit)="uploadClient($event)">-->
+<!--          <div>-->
+<!--            <label for="file" class="form-label" >Select a CSV file:</label>-->
+<!--            <input type="file"   id="file" accept=".csv" class="form-control" formControlName="file">-->
+<!--          </div>-->
+<!--          <button class="mt-4 btn btn-warning " type="submit" role="button">Submit</button>-->
+<!--        </form>-->
+        <div>
+          <label for="file" class="form-label" >Select a CSV file:</label>
+          <input type="file"  name="file"  id="file" accept=".csv" class="form-control" (change)="uploadClient($event)" >
+        </div>
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { EjemploRouteComponent } from './ejemplo-route/ejemplo-route.component';
 import { Ejem2Component } from './ejem2/ejem2.component';
 import { Pagina2Component } from './pagina2/pagina2.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
@@ -26,7 +26,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
