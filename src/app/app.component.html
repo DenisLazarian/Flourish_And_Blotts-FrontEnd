@@ -60,25 +60,15 @@
         <input type="text" placeholder="Search..." id="global-search" class="form-control" style="max-width:440px">
       </nav>
       <div id="content"  class="m-5" >
-        <h2 class="">Testing form</h2>
+        <h2 class="mb-5">Testing form</h2>
 
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-          <label for="file" class="fs-5 fw-bold">Select a file:</label>
-          <div >
-            <input type="file" ngModel name="file" id="file">
+        <form (ngSubmit)="uploadClient(f)" #f="ngForm">
+          <div>
+            <label for="file" class="form-label" >Select a CSV file:</label>
+            <input type="file" ngModel name="files" id="file" accept=".csv" class="form-control">
           </div>
-          <label for="name" class="fs-5 fw-bold">Write a file:</label>
-          <div >
-            <input type="text" ngModel name="name" id="name">
-          </div>
-          <label for="mail" class="fs-5 fw-bold">Write a mail:</label>
-          <div >
-            <input type="text" ngModel name="mail" id="mail">
-          </div>
-
-          <button type="submit" role="button">Submit</button>
+          <button class="mt-4 btn btn-warning " type="submit" role="button">Submit</button>
         </form>
-
       </div>
     </div>
   </div>

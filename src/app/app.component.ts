@@ -1,8 +1,9 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Observable} from "rxjs";
-import {UserService} from "./service/user.service";
+import {UserService} from "./service/user/user.service";
 import {HttpClient} from "@angular/common/http";
+import {FileService} from "./service/browser/file.service";
 
 class Timer {
 }
@@ -22,7 +23,8 @@ export class AppComponent {
   dataFile:any[] = [];
 
   constructor(private userService: UserService,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private fileService: FileService) {
     this.establishAMaxHeightContent();
   }
 
@@ -38,6 +40,19 @@ export class AppComponent {
     })
   }
 
+  uploadClient(form: NgForm){
+    const file = form.value.files;
+    console.log(file);
+    if(file){
+      const formData = new FormData();
+      formData.append('file', file);
+
+      this.fileService.uploadFile(formData)
+        .subscribe((response:any):void => {
+            console.log("response", response);
+        })
+    }
+  }
 
 
   @HostListener('window:resize', ['$event'])
@@ -94,6 +109,7 @@ export class AppComponent {
       this.establishMaxHeightHeader();
     }, 50);
   }
+
 
 
 }

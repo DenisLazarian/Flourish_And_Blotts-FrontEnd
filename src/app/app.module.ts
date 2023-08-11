@@ -20,7 +20,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HomeComponent,
     EjemploRouteComponent,
     Ejem2Component,
-    Pagina2Component
+    Pagina2Component,
   ],
   imports: [
     BrowserModule,
