@@ -21,9 +21,6 @@ export class AppComponent {
 
   data:any[] = [];
   dataFile:any[] = [];
-  submitFile: FormGroup = new FormGroup<any>({
-    file: new FormControl('')
-  });
 
   constructor(private userService: UserService,
               private httpClient: HttpClient,
@@ -36,6 +33,8 @@ export class AppComponent {
     this.provideDataApi();
   }
 
+
+
   private provideDataApi():void {
     this.userService.getData().subscribe((data)=>{
       this.data = data;
@@ -43,19 +42,20 @@ export class AppComponent {
     })
   }
 
-  uploadClient(event: any): void {
-    const file = event.target.files[0];
-    console.log(file);
-    if(file){
-      const formData = new FormData();
-      formData.append("file", file);
-
-      this.fileService.uploadFile(formData)
-        .subscribe((response:any):void => {
-            console.log("response", response);
-        })
-    }
-  }
+  // uploadClient(event: any): void {
+  //   const file = event.target.files[0];
+  //   console.log(file);
+  //   if(file){
+  //     const formData = new FormData();
+  //     formData.append("file", file);
+  //     formData.append("type-user", this.userTypeImport)
+  //
+  //     this.fileService.uploadFile(formData)
+  //       .subscribe((response:any):void => {
+  //           console.log("response", response);
+  //       })
+  //   }
+  // }
 
 
   @HostListener('window:resize', ['$event'])
@@ -74,6 +74,7 @@ export class AppComponent {
     // this.maxContentHeight = String(sideBar.offsetHeight - navbarContainer.offsetHeight)+"px";
     contentContainer.style.maxHeight = String(sideBar.offsetHeight - navbarContainer.offsetHeight)+"px";
     contentContainer.style.overflow = "auto";
+    contentContainer.style.maxHeight = String(parseFloat(contentContainer.style.maxHeight) - 25)+"px";
 
     // console.log(String(sideBar.offsetHeight - navbarContainer.offsetHeight));
     this.establishMaxHeightHeader();

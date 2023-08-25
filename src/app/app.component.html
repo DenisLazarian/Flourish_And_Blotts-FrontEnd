@@ -3,39 +3,51 @@
 <div class="container m-0 container-principal min-vw-100 p-0">
   <div class="row m-0" >
     <div class="col-sm-3 col-md-2 sidebar " [style]="'padding: 0'" >
-      <div class="d-flex flex-column flex-shrink-0   min-vh-100 " id="sidebar" style="background: #f5f6fa">
+      <div class="d-flex flex-column flex-shrink-0   min-vh-100" id="sidebar" style="background: #f5f6fa">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
           <img src="assets/imagesLogo/logo3.png"  alt="Page logo"  class="img-fluid"  id="logo" >
         </a>
-        <ul class="nav nav-pills flex-column mb-auto mt-2 mt-lg-5 p-3 ps-0  pb-1" >
+
+        <div class="title-nav fw-semibold ms-5  mt-2 mt-lg-5 p-3 ps-0  pb-1">User tools</div>
+        <ul class="nav nav-pills flex-column mb-auto mt-2 " >
           <li class="nav-item">
-            <a href="#" class="nav-link actived m-0" aria-current="page">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-              Home
+            <a  [routerLink]="'home'"  class="nav-link actived m-0 " aria-current="page">
+<!--              <svg class="bi pe-none me-2 " width="16" height="16"><use xlink:href="#home"/></svg>-->
+              <span class="ms-5 label-link">
+                Home
+              </span>
             </a>
           </li>
-          <li>
-            <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-              Dashboard
+          <li class="nav-item">
+            <a routerLink="readfile" class="nav-link link-body-emphasis m-0">
+<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>-->
+             <span class="ms-5 label-link">
+                Dashboard
+             </span>
             </a>
           </li>
-          <li>
+          <li class="nav-item">
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-              Orders
+<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>-->
+              <span class="ms-5 label-link">
+                Orders
+              </span>
             </a>
           </li>
-          <li>
+          <li class="nav-item">
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-              Products
+<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>-->
+              <span class="ms-5 label-link">
+                Products
+              </span>
             </a>
           </li>
-          <li>
+          <li class="nav-item">
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-              Customers
+<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>-->
+             <span class="ms-5 label-link">
+                Customers
+             </span>
             </a>
           </li>
         </ul>
@@ -59,8 +71,8 @@
       <nav class="p-4 shadow-sm " id="navbar">
         <input type="text" placeholder="Search..." id="global-search" class="form-control" style="max-width:440px">
       </nav>
-      <div id="content"  class="m-5" >
-        <h2 class="mb-5">Testing form</h2>
+      <div id="content"   >
+<!--        <h2 class="mb-5">Testing form</h2>-->
 
 <!--        <form [formGroup]="submitFile" (ngSubmit)="uploadClient($event)">-->
 <!--          <div>-->
@@ -69,10 +81,10 @@
 <!--          </div>-->
 <!--          <button class="mt-4 btn btn-warning " type="submit" role="button">Submit</button>-->
 <!--        </form>-->
-        <div>
-          <label for="file" class="form-label" >Select a CSV file:</label>
-          <input type="file"  name="file"  id="file" accept=".csv" class="form-control" (change)="uploadClient($event)" >
-        </div>
+
+
+        <router-outlet></router-outlet>
+
       </div>
     </div>
   </div>
@@ -82,6 +94,5 @@
 
 <!--<app-home></app-home>-->
 
-<!--<router-outlet></router-outlet>-->
 
 

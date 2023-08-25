@@ -10,6 +10,7 @@ import { Ejem2Component } from './ejem2/ejem2.component';
 import { Pagina2Component } from './pagina2/pagina2.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ReadCSVFileComponent } from './read-csvfile/read-csvfile.component';
 
 
 
@@ -21,6 +22,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     EjemploRouteComponent,
     Ejem2Component,
     Pagina2Component,
+    ReadCSVFileComponent,
   ],
   imports: [
     BrowserModule,
