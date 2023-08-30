@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Ejem2Component } from './ejem2.component';
+import { ShowBookComponent } from './show-book.component';
 
-describe('Ejem2Component', () => {
-  let component: Ejem2Component;
-  let fixture: ComponentFixture<Ejem2Component>;
+describe('ShowBookComponent', () => {
+  let component: ShowBookComponent;
+  let fixture: ComponentFixture<ShowBookComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Ejem2Component]
+      declarations: [ShowBookComponent]
     });
-    fixture = TestBed.createComponent(Ejem2Component);
+    fixture = TestBed.createComponent(ShowBookComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
