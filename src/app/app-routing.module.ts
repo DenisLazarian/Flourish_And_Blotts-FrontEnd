@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
-import {EjemploRouteComponent} from "./ejemplo-route/ejemplo-route.component";
 import {ReadCSVFileComponent} from "./read-csvfile/read-csvfile.component";
+import {AuthModule} from "./modules/auth/auth.module";
 
 const routes: Routes = [
-  {path:'home', component: HomeComponent},
-  {path:'ejem', component: EjemploRouteComponent},
-  {path: 'readfile', component: ReadCSVFileComponent}
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // {path:'home', component: HomeComponent},
+  // {path: 'readfile', component: ReadCSVFileComponent}
+  {
+    path: 'auth',
+    loadChildren: () => import(`./modules/auth/auth.module`).then(m=>m.AuthModule),
+  },
+  {
+    path: 'home',
+    loadChildren: () => import(`./modules/home/home.module`).then(m=>m.HomeModule),
+  }
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    AuthModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

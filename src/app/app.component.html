@@ -4,10 +4,9 @@
   <div class="row m-0" >
     <div class="col-sm-3 col-md-2 sidebar " [style]="'padding: 0'" >
       <div class="d-flex flex-column flex-shrink-0   min-vh-100" id="sidebar" style="background: #f5f6fa">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
+        <a [routerLink]="'/home'" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
           <img src="assets/imagesLogo/logo3.png"  alt="Page logo"  class="img-fluid"  id="logo" >
         </a>
-
         <div class="title-nav fw-bold ms-5  mt-2 mt-lg-5 p-3 ps-0  pb-1">User tools</div>
         <ul class="nav nav-pills flex-column mb-auto mt-2 " >
           <li class="nav-item">
@@ -82,7 +81,7 @@
 <!--          <button class="mt-4 btn btn-warning " type="submit" role="button">Submit</button>-->
 <!--        </form>-->
 
-
+<!--        <app-list-book></app-list-book>-->
         <router-outlet></router-outlet>
 
       </div>
