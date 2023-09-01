@@ -27,9 +27,8 @@ export class BookService {
   }
 
 
-  public showBook(id: number): Observable<any>{
+  public showBook(id: string): Observable<any>{
     let actionLink:string ="show";
-
     const headers = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*');

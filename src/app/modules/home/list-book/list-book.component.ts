@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BookService} from "../book.service";
+import {BookService} from "../../../shared/services/book.service";
 import {Book} from "../../../core/models/book";
 declare var $: any;
 
@@ -23,15 +23,10 @@ export class ListBookComponent {
   bookList(): void{
     this.bookService.listBooks().subscribe((data) =>{
       console.log(data);
-
-
       let book: any = data.response;
-
-
       for(let i = 0; i< book.length; i++){
         let authors:string[] = [];
         let categories:string[] = [];
-
 
         for (let y:number = 0; y<book[i].authors.length; y++)
           authors.push(book[i].authors[y].name);

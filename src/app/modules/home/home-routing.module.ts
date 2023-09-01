@@ -5,7 +5,7 @@ import {ListBookComponent} from "./list-book/list-book.component";
 
 const routes: Routes = [
   {
-    path: 'show-book',
+    path: 'show-book/:id',
     component: ShowBookComponent
   },
   {

@@ -4,3 +4,9 @@
   text-overflow: ellipsis;
   max-width: 400px;
 }
+
+.img-thumbnail{
+  min-height: 286px;
+  min-width: 286px;
+
+}
