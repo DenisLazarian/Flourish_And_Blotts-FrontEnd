@@ -1,1 +1,51 @@
-<p>show-book works!</p>
+
+<div class="container mt-5">
+  <div class="row ">
+    <div class="col-md-3 text-center">
+      <div >
+        <img src="{{bookSearched.thumbnail || 'https://dummyimage.com/240x350/000/fff&text=Not+found+Image'}}" alt="" class="shadow " style="width: 15rem; border-bottom: 1px solid #d5d5d7; ">
+      </div>
+
+      <div class="mt-3">
+        <button class="btn  w-100 btn-loan">Loan</button>
+      </div>
+
+      <div class="mt-3">
+        <button class="btn btn-warning  w-100 btn-reserve">Make reserve</button>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h1>{{bookSearched.title}}
+      <span *ngIf="bookSearched.subtitle">{{": "+bookSearched.subtitle}}</span>
+      </h1>
+<!--      <h1 style="font-family: ">{{bookSearched.title}}</h1>-->
+      <span class="text-secondary ms-1 mt-3 fs-5">
+          {{putComaAuthors(bookSearched.authors)}}
+      </span>
+
+      <p class="mt-4 ms-1">
+          {{bookSearched.description}}
+      </p>
+
+      <div class="d-flex gap-4 mt-4 ms-1">
+        <span class="text-secondary">
+          Genres:
+        </span>
+        <div class="cat-item fs-6 fw-bold " *ngFor="let category of bookSearched.categories">
+          {{category}}
+        </div>
+      </div>
+      <div class="text-secondary ms-1 mt-3">
+        {{bookSearched.pageNumber}} pages.
+      </div>
+      <div class="text-secondary ms-1">
+        {{bookSearched.datePublisher}}
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+

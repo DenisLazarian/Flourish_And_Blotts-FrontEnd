@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {BookService} from "../../../shared/services/book.service";
 import {Book} from "../../../core/models/book";
-declare var $: any;
 
 @Component({
   selector: 'app-list-book',

@@ -1,0 +1,16 @@
+.btn{
+  border-radius: 40px;
+}
+
+.btn-loan{
+  background: #2dad2d;
+}
+
+.btn-loan:hover{
+  cursor:pointer;
+  background: #3ff13f;
+}
+
+.cat-item{
+  color:black;
+}
