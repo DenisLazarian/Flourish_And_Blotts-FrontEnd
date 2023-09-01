@@ -7,12 +7,13 @@
         <a [routerLink]="'/home'" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
           <img src="assets/imagesLogo/logo3.png"  alt="Page logo"  class="img-fluid"  id="logo" >
         </a>
-        <div class="title-nav fw-bold ms-5  mt-2 mt-lg-5 p-3 ps-0  pb-1">User tools</div>
+        <div class="title-nav fw-bold ms-5  mt-2 mt-lg-5 p-3 ps-0  pb-1">Public info</div>
         <ul class="nav nav-pills flex-column mb-auto mt-2 " >
           <li class="nav-item">
             <a  [routerLink]="'home'"  class="nav-link actived m-0 " aria-current="page">
 <!--              <svg class="bi pe-none me-2 " width="16" height="16"><use xlink:href="#home"/></svg>-->
               <span class="ms-5 label-link">
+<!--               <i class="bi bi-house"></i> -->
                 Home
               </span>
             </a>
@@ -21,7 +22,7 @@
             <a routerLink="readfile" class="nav-link link-body-emphasis m-0">
 <!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>-->
              <span class="ms-5 label-link">
-                Dashboard
+                Schedules
              </span>
             </a>
           </li>
@@ -53,15 +54,18 @@
         <hr>
         <div class="dropdown p-3 ">
           <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>mdo</strong>
+<!--            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
+
+            <i class="bi bi-person-circle fs-4"></i>
+
+            <strong class="ms-2">Not connected</strong>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
+<!--            <li><a class="dropdown-item" href="#">New project...</a></li>-->
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" routerLink="auth/login">Sign in</a></li>
           </ul>
         </div>
       </div>

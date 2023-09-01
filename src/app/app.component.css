@@ -31,4 +31,25 @@
 
 }
 
+.sidebar{
+  /*background-color: #f4f4f4;*/
+  /*position: fixed;*/
+  top: 0;
+  left: 0;
+  height: 100vh; /* Altura de la barra lateral igual al 100% del viewport */
+  transform: translateX(0); /* Mostrar la barra lateral por defecto */
+  transition: transform 0.3s ease-in-out; /* Agregar una animación de transición */
+
+}
+
+
+.sidebar-hidden {
+  transform: translateX(-100%); /* Esconde la barra lateral fuera de la pantalla */
+
+}
+
+
+
+
+
 
