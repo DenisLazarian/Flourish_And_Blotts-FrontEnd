@@ -7,3 +7,12 @@
   max-width: 500px;
 }
 
+#forgot-pass{
+  text-decoration: none;
+}
+
+#forgot-pass:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+

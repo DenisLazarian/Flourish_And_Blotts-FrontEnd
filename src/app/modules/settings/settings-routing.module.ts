@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {RegistrationComponent} from "./registration/registration.component";
+import {SetViewComponent} from "./set-view/set-view.component";
 
 const routes: Routes = [
   {
-    path: 'form',
-    component: RegistrationComponent
+    path: '',
+    component: SetViewComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class RegisterRoutingModule { }
+export class SettingsRoutingModule { }
