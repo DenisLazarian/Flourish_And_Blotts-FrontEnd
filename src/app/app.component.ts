@@ -25,10 +25,10 @@ export class AppComponent {
   constructor(private userService: UserService,
               private httpClient: HttpClient,
               private fileService: FileService) {
-    this.establishAMaxHeightContent();
   }
 
   ngOnInit(): void {
+    this.establishHeightSidebar();
     this.establishAMaxHeightContent();
     this.provideDataApi();
   }
@@ -57,10 +57,25 @@ export class AppComponent {
   //   }
   // }
 
+  establishHeightSidebar():void{
+
+    let contentLogo= document.getElementById("container-logo");
+    let contentProfile = document.getElementById("perfil");
+    let sidebar = document.getElementById("sidebar");
+    let listOpt = document.getElementById("list-opt");
+
+    if(contentLogo == null || contentProfile == null || sidebar == null || listOpt == null) return ;
+
+    sidebar.style.maxHeight = String(-contentLogo.offsetHeight - contentProfile.offsetHeight + sidebar.offsetHeight)+"px";
+    listOpt.style.maxHeight = String( sidebar.offsetHeight - contentProfile.offsetHeight-contentLogo.offsetHeight)+"px";
+    listOpt.style.overflowY = "auto";
+  }
+
 
   @HostListener('window:resize', ['$event'])
   onWindowResize(event:Event){
     this.establishAMaxHeightContent();
+    this.establishHeightSidebar();
   }
 
   establishAMaxHeightContent():void{
@@ -80,6 +95,8 @@ export class AppComponent {
     this.establishMaxHeightHeader();
 
   }
+
+
 
   onSubmit(form: NgForm):void{
     console.log(form.value);

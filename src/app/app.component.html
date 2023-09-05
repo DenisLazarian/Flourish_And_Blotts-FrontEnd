@@ -3,12 +3,12 @@
 <div class="container m-0 container-principal min-vw-100 p-0">
   <div class="row m-0" >
     <div class="col-sm-3 col-md-2 sidebar " [style]="'padding: 0'" >
-      <div class="d-flex flex-column flex-shrink-0   min-vh-100" id="sidebar" style="background: #f5f6fa">
+      <div class="d-flex flex-column flex-shrink-0 min-vh-100 " id="sidebar" style="background: #f5f6fa">
         <a [routerLink]="'/home'" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
           <img src="assets/imagesLogo/logo3.png"  alt="Page logo"  class="img-fluid"  id="logo" >
         </a>
-        <div class="title-nav fw-bold ms-5  mt-2 mt-lg-5 p-3 ps-0  pb-1">Public info</div>
-        <ul class="nav nav-pills flex-column mb-auto mt-2 " >
+        <ul class="nav nav-pills flex-column mb-auto mt-2 mb-0 " id="list-opt">
+          <div class="title-nav fw-bold ms-5  mt-2 mt-lg-3 p-3 ps-0 mb-2  pb-1">Public info</div>
           <li class="nav-item">
             <a  [routerLink]="'home'"  class="nav-link actived m-0 " aria-current="page">
 <!--              <svg class="bi pe-none me-2 " width="16" height="16"><use xlink:href="#home"/></svg>-->
@@ -50,9 +50,14 @@
              </span>
             </a>
           </li>
+
+          <app-admin-p-menu-opt></app-admin-p-menu-opt>
+
         </ul>
+
+
         <hr>
-        <div class="dropdown p-3 ">
+        <div class="dropdown p-3" id="perfil">
           <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 <!--            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
 

@@ -31,6 +31,11 @@
 
 }
 
+/*#sidebar{*/
+/*  max-height: 100%;*/
+/*  overflow: hidden;*/
+/*}*/
+
 .sidebar{
   /*background-color: #f4f4f4;*/
   /*position: fixed;*/
@@ -46,6 +51,10 @@
 .sidebar-hidden {
   transform: translateX(-100%); /* Esconde la barra lateral fuera de la pantalla */
 
+}
+
+.nav{
+  flex-wrap: nowrap;
 }
 
 
