@@ -21,7 +21,7 @@ export class ListBookComponent {
 
   bookList(): void{
     this.bookService.listBooks().subscribe((data) =>{
-      console.log(data);
+      // console.log(data);
       let book: any = data.response;
       for(let i = 0; i< book.length; i++){
         let authors:string[] = [];

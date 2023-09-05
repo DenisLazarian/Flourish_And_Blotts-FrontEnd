@@ -14,7 +14,8 @@ export class UserService {
   public getData(): Observable<any>{
     const headers = new HttpHeaders()
       .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*');
+      .set('Access-Control-Allow-Origin', '*')
+      .set('Authorization', 'Bearer '+localStorage.getItem('token'));
 
     return this.http.get<any>(this.url+"/list",{headers: headers});
   }

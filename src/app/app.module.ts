@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { ReadCSVFileComponent } from './read-csvfile/read-csvfile.component';
 import {AuthModule} from "./modules/auth/auth.module";
 import {HomeModule} from "./modules/home/home.module";
+import {SharedModule} from "./shared/shared.module";
+import {TokenSessionInterceptor} from "./core/interceptor/token-session.interceptor";
 
 
 
@@ -26,9 +28,14 @@ import {HomeModule} from "./modules/home/home.module";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: TokenSessionInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

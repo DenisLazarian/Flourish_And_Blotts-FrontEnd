@@ -11,19 +11,19 @@
 <!--      </div>-->
 
 <!--    </div>-->
-    <form action="">
+    <form #form="ngForm" (ngSubmit)="login(form)">
       <div class="d-flex justify-content-center  flex-column m-5">
         <div class="username justify-content-center">
           <label for="mail">
             Email:
           </label>
-          <input type="text" name="mail" id="mail" class="form-control mt-2">
+          <input type="text" name="mail" id="mail" class="form-control mt-2" [(ngModel)]="credentials.mail">
         </div>
         <div class="username justify-content-center mt-4">
           <label for="password">
             Password:
           </label>
-          <input type="password" name="password" id="password" class="form-control mt-2">
+          <input type="password" name="password" id="password" class="form-control mt-2" [(ngModel)]="credentials.password">
         </div>
 
         <a  class="mt-4 " id="forgot-pass">
