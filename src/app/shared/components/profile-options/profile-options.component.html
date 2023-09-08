@@ -1,0 +1,30 @@
+
+<div class="ms-3">
+  <ng-container *ngIf="registered; else notLogged">
+    <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  <!--                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
+      <i class="bi bi-person-circle fs-4"></i>
+      <strong class="ms-2">{{sessionData.response.name}}</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow">
+      <li><a class="dropdown-item" routerLink="/settings">Settings</a></li>
+      <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
+    </ul>
+
+  </ng-container>
+  <ng-template #notLogged>
+    <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-person-circle fs-4"></i>
+      <strong class="ms-2">Not registered</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow">
+  <!--    <li><a class="dropdown-item" routerLink="/settings">Settings</a></li>-->
+  <!--    <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>-->
+  <!--    <li><hr class="dropdown-divider"></li>-->
+      <li><a class="dropdown-item" routerLink="auth/login">Sign in</a></li>
+    </ul>
+  </ng-template>
+</div>
+
