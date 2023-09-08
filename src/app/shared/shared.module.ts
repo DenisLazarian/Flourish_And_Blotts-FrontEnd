@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { AdminPMenuOptComponent } from './components/admin-p-menu-opt/admin-p-menu-opt.component';
 import { AdminRMenuOptComponent } from './components/admin-r-menu-opt/admin-r-menu-opt.component';
 import {RouterLink} from "@angular/router";
+import { ProfileOptionsComponent } from './components/profile-options/profile-options.component';
 
 
 
 @NgModule({
   declarations: [
     AdminPMenuOptComponent,
-    AdminRMenuOptComponent
+    AdminRMenuOptComponent,
+    ProfileOptionsComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import {RouterLink} from "@angular/router";
   ],
   exports:[
     AdminPMenuOptComponent,
-    AdminRMenuOptComponent
+    AdminRMenuOptComponent,
+    ProfileOptionsComponent
   ]
 })
 export class SharedModule { }

@@ -18,7 +18,6 @@ export class ReadCSVFileComponent {
   }
   uploadClient(event: any): void {
     const file = event.target.files[0];
-    console.log(file);
     if(file){
       const formData = new FormData();
       formData.append("file", file);
@@ -26,7 +25,6 @@ export class ReadCSVFileComponent {
 
       this.fileService.uploadFile(formData)
         .subscribe((response:any):void => {
-          console.log("response", response);
         })
     }
   }

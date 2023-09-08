@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular/common/http";
+import {catchError, map, Observable, throwError} from "rxjs";
 import {Credentials} from "../../core/models/user";
+import jwt_decode from 'jwt-decode';
+declare var $: any;
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,24 @@ export class UserService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {}
 
-  login(credentials: Credentials){
+  getUserSession():Observable<any>{
+    let userObj:any = jwt_decode(this.getToken());
+
+    console.log(userObj);
+    const headers = new HttpHeaders()
+      .set('content-type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('Authorization', 'Bearer '+ this.getToken());
+
+    return this.http.post(
+      this.url+"user/sessionData",
+      {mail:userObj.sub},
+      {headers: headers} );
+  }
+
+  login(credentials: Credentials):Observable<any>{
     const headers = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*');
@@ -24,8 +41,6 @@ export class UserService {
       headers: headers
     }).pipe(map((response: HttpResponse<any>)=>{
       const body = response.body;
-
-      // const bearerToken = headers.get('Authorization');
       const token = response.body.token;
 
       console.log(response)
@@ -33,10 +48,20 @@ export class UserService {
         localStorage.setItem('token', token);
       }
       return body;
-    }));
+    }
+    ),
+      catchError((error: HttpErrorResponse)=>{
+        const errorMessage = error.error.message; // Supongamos que el mensaje de error está en el campo "message"
+        let containerError = $('#errorDiv');
+        containerError.removeClass("d-none");
+        containerError.append("<div><i class='bi bi-exclamation-octagon-fill' ></i> "+errorMessage+"</div>");
+
+        // Devolver un observable vacío o un valor predeterminado si es necesario
+        return throwError(()=>errorMessage);
+      }));
   }
 
-  getToken() {
+  getToken():any {
     return localStorage.getItem('token');
   }
 

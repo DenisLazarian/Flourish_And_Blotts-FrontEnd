@@ -38,7 +38,6 @@ export class AppComponent {
   private provideDataApi():void {
     this.userService.getData().subscribe((data)=>{
       this.data = data;
-      console.log(data);
     })
   }
 
@@ -99,12 +98,11 @@ export class AppComponent {
 
 
   onSubmit(form: NgForm):void{
-    console.log(form.value);
     const userService = new UserService(this.httpClient);
 
     userService.submitCSVFile(form.value.file).subscribe((data)=>{
       this.dataFile=data;
-      console.log(this.dataFile);
+      // console.log(this.dataFile);
     });
   }
 

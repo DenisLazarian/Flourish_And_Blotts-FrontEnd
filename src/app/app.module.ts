@@ -11,6 +11,7 @@ import {AuthModule} from "./modules/auth/auth.module";
 import {HomeModule} from "./modules/home/home.module";
 import {SharedModule} from "./shared/shared.module";
 import {TokenSessionInterceptor} from "./core/interceptor/token-session.interceptor";
+import {ErrorInterceptor} from "./core/interceptor/error.interceptor";
 
 
 
@@ -34,6 +35,9 @@ import {TokenSessionInterceptor} from "./core/interceptor/token-session.intercep
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: TokenSessionInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true
     }
   ],
   bootstrap: [AppComponent]

@@ -24,7 +24,6 @@ export class ShowBookComponent {
   getBook():void{
     this.route.paramMap.subscribe(params =>{
       this.bookService.showBook(<string>params.get("id")).subscribe(data => {
-        console.log(data);
         let authors: string[] = [];
         let categories: string[] = [];
         let book: any = data.response;

@@ -25,7 +25,7 @@ export class HomeComponent {
   bookList(): void{
 
     this.bookService.listBooks().subscribe((data) =>{
-      console.log(data);
+      // console.log(data);
 
 
 
