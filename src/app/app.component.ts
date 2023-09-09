@@ -1,9 +1,8 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
 import {FormControl, FormGroup, NgForm} from "@angular/forms";
-import {Observable} from "rxjs";
-import {UserService} from "./service/user/user.service";
 import {HttpClient} from "@angular/common/http";
 import {FileService} from "./service/browser/file.service";
+import {UserService} from "./shared/services/user.service";
 
 class Timer {
 }

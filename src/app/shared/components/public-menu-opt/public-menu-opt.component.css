@@ -1,0 +1,45 @@
+
+
+.nav-link{
+  border-left: 0;
+  margin-top: 0;
+  border-right: 40px;
+  border-radius: 0 40px 40px 0;
+  max-width: 80%;
+  max-height: 10%;
+
+}
+
+
+
+.nav-link:hover{
+  background-color: #d8d8dc;
+  border-radius: 0 40px 40px 0;
+
+}
+
+.actived{
+  background-color: #e8d124;
+  color: white;
+  border-radius: 0 40px 40px 0;
+}
+
+.title-nav{
+  color: #858585;
+
+}
+
+/*#sidebar{*/
+/*  max-height: 100%;*/
+/*  overflow: hidden;*/
+/*}*/
+
+.nav{
+  flex-wrap: nowrap;
+}
+
+
+
+
+
+

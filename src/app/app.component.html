@@ -4,53 +4,13 @@
   <div class="row m-0" >
     <div class="col-sm-3 col-md-2 sidebar " [style]="'padding: 0'" >
       <div class="d-flex flex-column flex-shrink-0 min-vh-100 " id="sidebar" style="background: #f5f6fa">
-        <a [routerLink]="'/home'" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
+        <a [routerLink]="'home'" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none m-0 p-3" style="text-align: center; " id="container-logo" >
           <img src="assets/imagesLogo/logo3.png"  alt="Page logo"  class="img-fluid"  id="logo" >
         </a>
         <ul class="nav nav-pills flex-column mb-auto mt-2 mb-0 " id="list-opt">
-          <div class="title-nav fw-bold ms-5  mt-2 mt-lg-3 p-3 ps-0 mb-2  pb-1">Public info</div>
-          <li class="nav-item">
-            <a  [routerLink]="'home'"  class="nav-link actived m-0 " aria-current="page">
-<!--              <svg class="bi pe-none me-2 " width="16" height="16"><use xlink:href="#home"/></svg>-->
-              <span class="ms-5 label-link">
-<!--               <i class="bi bi-house"></i> -->
-                Home
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="readfile" class="nav-link link-body-emphasis m-0">
-<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>-->
-             <span class="ms-5 label-link">
-                Schedules
-             </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link link-body-emphasis">
-<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>-->
-              <span class="ms-5 label-link">
-                Orders
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link link-body-emphasis">
-<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>-->
-              <span class="ms-5 label-link">
-                Products
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link link-body-emphasis">
-<!--              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>-->
-             <span class="ms-5 label-link">
-                Customers
-             </span>
-            </a>
-          </li>
+          <app-public-menu-opt></app-public-menu-opt>
           <app-admin-p-menu-opt></app-admin-p-menu-opt>
+          <app-admin-r-menu-opt></app-admin-r-menu-opt>
         </ul>
 
 

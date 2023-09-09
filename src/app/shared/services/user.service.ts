@@ -85,4 +85,6 @@ export class UserService {
 
     return this.http.post<any>(this.url+"/prove/file",{headers: headers, params: {file: file}});
   }
+
+
 }

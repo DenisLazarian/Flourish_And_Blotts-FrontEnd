@@ -4,6 +4,7 @@ import { AdminPMenuOptComponent } from './components/admin-p-menu-opt/admin-p-me
 import { AdminRMenuOptComponent } from './components/admin-r-menu-opt/admin-r-menu-opt.component';
 import {RouterLink} from "@angular/router";
 import { ProfileOptionsComponent } from './components/profile-options/profile-options.component';
+import { PublicMenuOptComponent } from './components/public-menu-opt/public-menu-opt.component';
 
 
 
@@ -11,7 +12,8 @@ import { ProfileOptionsComponent } from './components/profile-options/profile-op
   declarations: [
     AdminPMenuOptComponent,
     AdminRMenuOptComponent,
-    ProfileOptionsComponent
+    ProfileOptionsComponent,
+    PublicMenuOptComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { ProfileOptionsComponent } from './components/profile-options/profile-op
   exports:[
     AdminPMenuOptComponent,
     AdminRMenuOptComponent,
-    ProfileOptionsComponent
+    ProfileOptionsComponent,
+    PublicMenuOptComponent
   ]
 })
 export class SharedModule { }
