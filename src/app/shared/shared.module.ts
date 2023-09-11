@@ -5,6 +5,7 @@ import { AdminRMenuOptComponent } from './components/admin-r-menu-opt/admin-r-me
 import {RouterLink} from "@angular/router";
 import { ProfileOptionsComponent } from './components/profile-options/profile-options.component';
 import { PublicMenuOptComponent } from './components/public-menu-opt/public-menu-opt.component';
+import { RoleDirective } from './directives/role.directive';
 
 
 
@@ -13,7 +14,8 @@ import { PublicMenuOptComponent } from './components/public-menu-opt/public-menu
     AdminPMenuOptComponent,
     AdminRMenuOptComponent,
     ProfileOptionsComponent,
-    PublicMenuOptComponent
+    PublicMenuOptComponent,
+    RoleDirective
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { PublicMenuOptComponent } from './components/public-menu-opt/public-menu
     AdminPMenuOptComponent,
     AdminRMenuOptComponent,
     ProfileOptionsComponent,
-    PublicMenuOptComponent
+    PublicMenuOptComponent,
+      RoleDirective
   ]
 })
 export class SharedModule { }

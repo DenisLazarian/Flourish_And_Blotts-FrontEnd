@@ -3,6 +3,8 @@ import {FormControl, FormGroup, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {FileService} from "./service/browser/file.service";
 import {UserService} from "./shared/services/user.service";
+import {helper} from "./shared/helpers/app-helpers";
+// import {checkRole} from "./shared/helpers/app-helpers";
 
 class Timer {
 }
@@ -129,5 +131,5 @@ export class AppComponent {
   }
 
 
-
+  protected readonly helper = helper;
 }

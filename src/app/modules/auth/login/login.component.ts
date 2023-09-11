@@ -19,8 +19,10 @@ export class LoginComponent {
     password: ''
   };
 
-  @Output() registered: any = new EventEmitter<string>;
-  @Output() sessionData: any = new EventEmitter<string>;
+  @Output() registered: EventEmitter<string> = new EventEmitter<string>;
+  @Output() sessionData: EventEmitter<string> = new EventEmitter<string>;
+
+  @Output() actualizeViewsAppRole: EventEmitter<string> = new EventEmitter<string>;
 
   constructor(
     private userService: UserService,
@@ -37,11 +39,16 @@ export class LoginComponent {
     this.userService.login(this.credentials)
       .subscribe(response =>{
         this.updateSession();
+        this.updateTemplateView();
         this.router.navigate(['/']).then(r => r.valueOf());
       });
   }
 
   updateSession(): void{
     this.sharedService.updateProfileView();
+  }
+
+  updateTemplateView(): void{
+    this.sharedService.updateTemplateView();
   }
 }

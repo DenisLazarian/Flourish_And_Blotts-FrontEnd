@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Credentials} from "../../core/models/user";
 import jwt_decode from 'jwt-decode';
+import {helper} from "../helpers/app-helpers";
 declare var $: any;
 
 @Injectable({
@@ -23,7 +24,7 @@ export class UserService {
     const headers = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
-      .set('Authorization', 'Bearer '+ this.getToken());
+      .set('Authorization', 'Bearer '+ helper.getToken());
 
     return this.http.post(
       this.url+"user/sessionData",
@@ -67,15 +68,36 @@ export class UserService {
 
   public getData(): Observable<any>{
 
-    let token = localStorage.getItem('token');
+    let token:string | null = helper.getToken();
 
-    const headers = new HttpHeaders()
+    const headers:HttpHeaders = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
       .set('Authorization', 'Bearer '+ token);
 
-    return this.http.get<any>(this.url+"/list",{headers: headers});
+    return this.http.get<any>(this.url+"user/list",{headers: headers});
   }
+
+
+  // public checkRole(role:string):boolean{
+  //   let token:string | null = helper.getToken();
+  //
+  //   const headers:HttpHeaders = new HttpHeaders()
+  //     .set('content-type', 'application/json')
+  //     .set('Access-Control-Allow-Origin', '*')
+  //     .set('Authorization', 'Bearer '+ token);
+  //
+  //   let hasRole:boolean = false;
+  //
+  //   this.http.get(this.url+"user/role", {params: {role: role}, headers:headers}).subscribe(
+  //     (response: any)=>{
+  //         hasRole=response;
+  //     }
+  //   );
+  //   return hasRole;
+  // }
+
+
 
   public submitCSVFile(file:string){
     // console.log(file);

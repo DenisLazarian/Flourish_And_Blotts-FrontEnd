@@ -27,7 +27,6 @@ export class ProfileOptionsComponent {
 
   ngOnInit():void{
     this.dataSession();
-    console.log(this.registered)
   }
   logout():void{
     localStorage.removeItem('token');
