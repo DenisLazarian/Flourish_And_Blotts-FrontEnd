@@ -16,7 +16,7 @@ export class Book {
 
 
 
-  constructor(id: string | number, title: string, subtitle: string, pageNumber: number, description: string, thumbnail: string, language: string, editorial: string, categories: string[], authors: string[], datePublisher: string, isbn_13: string) {
+  constructor(id: string | number, title: string, subtitle: string, pageNumber: number, description: string, thumbnail: string , language: string, editorial: string, categories: string[], authors: string[], datePublisher: string, isbn_13: string) {
     this._id = id;
     this._title = title;
     this._subtitle = subtitle;

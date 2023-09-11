@@ -13,6 +13,7 @@ export class UserService {
 
   url: string = "http://localhost:9901/";
 
+
   constructor(
     private http: HttpClient
   ) {}
@@ -79,29 +80,35 @@ export class UserService {
   }
 
 
-  // public checkRole(role:string):boolean{
-  //   let token:string | null = helper.getToken();
+  // hasRoles(roles:string[]):Observable<boolean>{
+  //   let token:string | null = this.getToken();
+  //
+  //   if(token == null){
+  //     return new Observable<boolean>((observer) => {
+  //       observer.next(false);
+  //       observer.complete();
+  //     });
+  //   }
   //
   //   const headers:HttpHeaders = new HttpHeaders()
   //     .set('content-type', 'application/json')
   //     .set('Access-Control-Allow-Origin', '*')
   //     .set('Authorization', 'Bearer '+ token);
   //
-  //   let hasRole:boolean = false;
   //
-  //   this.http.get(this.url+"user/role", {params: {role: role}, headers:headers}).subscribe(
-  //     (response: any)=>{
-  //         hasRole=response;
-  //     }
-  //   );
-  //   return hasRole;
+  //   return this.http
+  //       .get(this.url + `user/role?roles=${roles.join(',')}`, { headers: headers })
+  //       .pipe(
+  //         map((data: any) => {
+  //           return data.response;
+  //         })
+  //       );
   // }
-
 
 
   public submitCSVFile(file:string){
     // console.log(file);
-    const headers = new HttpHeaders()
+    const headers:HttpHeaders = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*');
 
@@ -109,4 +116,12 @@ export class UserService {
   }
 
 
+  getUserRole(): Observable<string> {
+    const headers:HttpHeaders = new HttpHeaders()
+        .set('content-type', 'application/json')
+        .set('Access-Control-Allow-Origin', '*')
+        .set('Authorization', 'Bearer '+this.getToken());
+
+    return this.http.get<string>(this.url+'user/role', {headers:headers});
+  }
 }

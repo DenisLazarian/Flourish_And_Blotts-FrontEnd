@@ -21,7 +21,7 @@ export class ListBookComponent {
 
   bookList(): void{
     this.bookService.listBooks().subscribe((data) =>{
-      // console.log(data);
+      console.log(data);
       let book: any = data.response;
       for(let i = 0; i< book.length; i++){
         let authors:string[] = [];
@@ -33,7 +33,7 @@ export class ListBookComponent {
         for (let x:number = 0; x<book[i].categories.length; x++)
           categories.push(book[i].categories[x].name);
 
-        this.books[i] = new Book(book[i].id, book[i].title, book[i].subtitle, book[i].pageNumber, book[i].description, book[i].thumbnail, book[i].language.name, book[i].editorial.name, categories,authors, book[i].datePublisher, book[i].isbn_13);
+        this.books[i] = new Book(book[i].id, book[i].title, book[i].subtitle, book[i].pageNumber, book[i].description, book[i].thumbnail , book[i].language.name, book[i].editorial[0].name, categories,authors, book[i].datePublisher, book[i].isbn_13);
       }
 
 

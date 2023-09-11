@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {FileService} from "./service/browser/file.service";
 import {UserService} from "./shared/services/user.service";
 import {helper} from "./shared/helpers/app-helpers";
+import {SharedService} from "./shared/services/shared.service";
 // import {checkRole} from "./shared/helpers/app-helpers";
 
 class Timer {
@@ -23,17 +24,41 @@ export class AppComponent {
   data:any[] = [];
   dataFile:any[] = [];
 
+  userRole:string = "";
+
   constructor(private userService: UserService,
               private httpClient: HttpClient,
-              private fileService: FileService) {
+              private fileService: FileService,
+              private sharedService: SharedService) {
+
+    this.sharedService.obtainEventRole().subscribe(
+        ():void=>{
+          this.getUserRole();
+        }
+    )
+
+    this.sharedService.obtainEventRoleLogOut().subscribe(
+        ():void=>{
+          this.getUserRole();
+        }
+    )
   }
 
   ngOnInit(): void {
     this.establishHeightSidebar();
     this.establishAMaxHeightContent();
     this.provideDataApi();
+
+    this.getUserRole();
+
   }
 
+  getUserRole():void{
+    this.userService.getUserRole().subscribe((role:any):void=>{
+      this.userRole = role.response;
+      console.log(this.userRole);
+    })
+  }
 
 
   private provideDataApi():void {
@@ -41,6 +66,9 @@ export class AppComponent {
       this.data = data;
     })
   }
+
+
+
 
   // uploadClient(event: any): void {
   //   const file = event.target.files[0];
@@ -129,6 +157,7 @@ export class AppComponent {
       this.establishMaxHeightHeader();
     }, 50);
   }
+
 
 
   protected readonly helper = helper;

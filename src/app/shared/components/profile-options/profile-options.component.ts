@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {catchError, of, Subscription} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -15,6 +15,9 @@ export class ProfileOptionsComponent {
   registered:any = new EventEmitter<string>();
 
   private eventSubscription: Subscription | undefined;
+  // private eventSubsLogout:Subscription | undefined;
+
+  @Output() actualizeViewsAppRoleLogOut:EventEmitter<void> = new EventEmitter<void>;
 
   constructor(
     private userService: UserService,
@@ -22,7 +25,10 @@ export class ProfileOptionsComponent {
   ) {
     this.eventSubscription = this.sharedService.obtainEvent().subscribe(()=>{
       this.dataSession();
-    })
+    });
+    // this.eventSubsLogout =  this.sharedService.obtainEventLogOut().subscribe(()=>{
+    //   this.dataSession();
+    // });
   }
 
   ngOnInit():void{
@@ -31,6 +37,7 @@ export class ProfileOptionsComponent {
   logout():void{
     localStorage.removeItem('token');
     this.dataSession();
+    this.updateViewTemplateLogOut();
   }
 
 
@@ -59,7 +66,13 @@ export class ProfileOptionsComponent {
       });
   }
 
+  updateViewTemplateLogOut():void{
+    this.sharedService.updateViewsAppRoleLogOut();
+  }
+
+
   ngOnDestroy():void{
     this.eventSubscription?.unsubscribe();
   }
+
 }

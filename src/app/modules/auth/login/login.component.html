@@ -8,7 +8,7 @@
 <!--        The arguments with (<span class="text-danger">*</span>), it's mean that's required.-->
 <!--      </div>-->
 <!--    </div>-->
-    <form #form="ngForm" (ngSubmit)="login(form); updateSession()">
+    <form #form="ngForm" (ngSubmit)="login(form); updateSession(); updateTemplateViewRole();">
       <div class="d-flex justify-content-center  flex-column m-5">
         <div class="username justify-content-center">
           <div id="errorDiv" class="alert alert-danger d-none"></div>
