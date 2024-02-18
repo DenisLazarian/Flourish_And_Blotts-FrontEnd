@@ -184,3 +184,9 @@ export interface Credentials{
   mail: string;
   password: string;
 }
+
+export interface newPassword{
+  password: string;
+  newPassword: string;
+  confirmPassword: string;
+}

@@ -33,7 +33,7 @@ export class LoginComponent {
   * To submit the credentials, when you login on the app.
   * */
   login(form: NgForm):void{
-    // console.log('form value', form.value);
+    console.log('form value', form.value);
     this.userService.login(this.credentials)
       .subscribe(():void =>{
         this.updateSession();

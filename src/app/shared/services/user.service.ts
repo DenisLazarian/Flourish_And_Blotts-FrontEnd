@@ -105,6 +105,15 @@ export class UserService {
   //       );
   // }
 
+  public changePass(data:any){
+    const headers:HttpHeaders = new HttpHeaders()
+      .set('content-type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('Authorization', 'Bearer '+this.getToken());
+
+    return this.http.post<any>(this.url+"user/passChange",data,{headers: headers});
+  }
+
 
   public submitCSVFile(file:string){
     // console.log(file);

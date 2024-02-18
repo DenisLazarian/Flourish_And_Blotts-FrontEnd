@@ -6,6 +6,8 @@ import { CreateComponent } from './create/create.component';
 import { UpdateComponent } from './update/update.component';
 import { ShowComponent } from './show/show.component';
 import { ListComponent } from './list/list.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    ManageUsersRoutingModule
-  ]
+    ManageUsersRoutingModule,
+    MatPaginatorModule,
+    MatTableModule
+  ],
 })
 export class ManageUsersModule { }

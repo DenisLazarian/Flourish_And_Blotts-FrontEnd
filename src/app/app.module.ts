@@ -11,6 +11,7 @@ import {HomeModule} from "./modules/home/home.module";
 import {SharedModule} from "./shared/shared.module";
 import {TokenSessionInterceptor} from "./core/interceptor/token-session.interceptor";
 import {ErrorInterceptor} from "./core/interceptor/error.interceptor";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -28,7 +29,8 @@ import {ErrorInterceptor} from "./core/interceptor/error.interceptor";
     HttpClientModule,
     ReactiveFormsModule,
     HomeModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
